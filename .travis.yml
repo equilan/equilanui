@@ -1,26 +1,25 @@
----
 language: node_js
 node_js:
-  - "6"
-
+- '6'
 sudo: false
 dist: trusty
-
 addons:
   chrome: stable
-
 cache:
   directories:
-    - $HOME/.npm
-
+  - "$HOME/.npm"
 env:
   global:
-    # See https://git.io/vdao3 for details.
-    - JOBS=1
-
+  - JOBS=1
 before_install:
-  - npm config set spin false
-
+- npm config set spin false
 script:
-  - npm run lint:js
-  - npm test
+- npm run lint:js
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: OGAcndvT9eYW2y8iwd6nu7OjpaLtfUp+Z2Fj9+iLiLU9+t8T4ODK1OY1eDrmKRrVpeU2wl6Wa2KgZgBKyWMyJNi4dbtITKCH/2SYBPLaLgdhX6sRawnAeTPlbCtNn2f8b50xcUM6FoYFzsb2XF1p4az9BIoqP4C28Bj+AiX80JWrw2OFWqdP7N6P+HwkAJOSxz9mpYHAGvuIjCrPo3RSjEYAPbauhUY9E/eIXOuaf/4QVfcnCFFzDxKLJcrtrCXl82Zv7TUcP5EaQgjYyMVcGnkCs+gGJ5yYALHJb1KM1R2PwgCI1jazCuGSHp9/yZkmA1meO1sryfRnckoIBVSDysbMKXAbsQyFjMVbyYS3Jobq48PzI+HN8pH6fsEORoiW1jYZ7ORpsaRoHHsOqmcwpOF/gMry1yH4A7U2jbsldFw8Cf588t/7vwePKpzzAT+hUNZK3IeSCs84StDyFTUSD14NtSocT+H3J1XoUh4bi2WA179Ty9iKCbLuc/W58122e5FQhsvDYQoKFbZgxzZVvoIgyNAexNeiZyS0BUjl1rCdsK5SNziz/+YZ8hXNllkyGDKXaThyodz3rMCaKqAOysFE9+kXAOElz5zelYvSB9TB2252jNJTvohCxhxv8Ku/NEr21ronE+wouH72WQ2X/w+VCBfpyYwLDAPdwIDJAL8=
+  app: equilanui
+  on:
+    repo: equilan/equilanui
